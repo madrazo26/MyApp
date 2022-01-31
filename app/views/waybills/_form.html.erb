@@ -1,0 +1,27 @@
+<%= render 'shared/errors', object: @waybill %>
+
+<%= form_with model: @waybill , data: { turbo: false } do |f| %>
+  <div class="=mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :title %>
+    </div>
+
+
+    <div class="col-sm-10">
+    <%= f.text_field :title, placeholder: "Title", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body, class: 'col-sm-2 col-form-label' %>
+    </div>
+
+    <div class="col-sm-10">
+    <%= f.text_area :body, class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= f.submit "Successful", class: 'btn btn-primary'%>
+
+<% end %>

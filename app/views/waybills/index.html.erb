@@ -1,0 +1,32 @@
+<% provide :page_title, 'Waybill' %>
+<% currently_at 'Waybill' %>
+
+<h1 class="mb-4">Waybills</h1>
+
+<%= link_to 'New waybill', new_waybill_path, class: 'btn btn-primary btn-lg' %>
+
+<%= paginate @waybills %>
+
+<% @waybills.each do |waybill| %>
+  <article class="card mt-3">
+    <div class="card-body">
+      <h4><%= waybill.title %></h4>
+
+      <section class="card-text">
+        <time datetime="<%= waybill.formatted_created_at %>">
+          <small><%= waybill.formatted_created_at %></small>
+        </time>
+
+        <p class="my-2">
+          <%= truncate strip_tags(waybill.body), length: 150, omission: '... (continue)' %>
+        </p>
+      </section>
+      <%= link_to 'Show', waybill_path(waybill), class: 'btn btn-primary'%>
+      <%= link_to 'Destroy', waybill_path(waybill), class: 'btn btn-secondary',
+                  data: {method: :delete, confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_waybill_path(waybill), class: 'btn btn-danger' %>
+    </div>
+  </article>
+<% end %>
+
+<%= paginate @waybills %>

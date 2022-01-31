@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyApp</title>
+    <meta charset="utf-8">
+    <title><%= full_title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +12,14 @@
   </head>
 
   <body>
+  <%= yield :main_menu %>
+
+  <main class="container mt-3">
+    <% flash.each do |k, v| %>
+      <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+    <% end %>
+
     <%= yield %>
+  </main>
   </body>
 </html>
