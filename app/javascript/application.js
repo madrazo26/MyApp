@@ -7,3 +7,4 @@ import 'bootstrap/js/dist/collapse'
 
 Rails.start()
 Turbolinks.start()
+import * as bootstrap from "bootstrap"

@@ -56,6 +56,7 @@ gem 'kaminari'
 gem 'rubyzip'
 gem 'valid_email2'
 gem 'activerecord-import'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
